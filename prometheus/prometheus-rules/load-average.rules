@@ -1,0 +1,12 @@
+groups:
+- name: NodeLoadAverage
+  rules:
+
+  - alert: NodeCPUUsage
+    expr: ((node_load5 / count without (cpu, mode) (node_cpu{mode="system"})) > 1)
+    for: 2m
+    labels:
+      severity: page
+    annotations:
+      summary: "{{$labels.instance}}: High LA detected"
+      description: "{{$labels.instance}}: LA is high"

@@ -1,0 +1,21 @@
+groups:
+- name: NodeDiskUsage
+  rules:
+
+  - alert: NodeLowRootDisk
+    expr: ((node_filesystem_size{mountpoint="/root-disk"} - node_filesystem_free{mountpoint="/root-disk"} ) / node_filesystem_size{mountpoint="/root-disk"} * 100) > 75
+    for: 2m
+    labels:
+      severity: page
+    annotations:
+      summary: "{{$labels.instance}}: Low root disk space"
+      description: "{{$labels.instance}}: Root disk usage is above 75% (current value is: {{ $value }})"
+
+  - alert: NodeLowDataDisk
+    expr: ((node_filesystem_size{mountpoint="/data-disk"} - node_filesystem_free{mountpoint="/data-disk"} ) / node_filesystem_size{mountpoint="/data-disk"} * 100) > 75
+    for: 2m
+    labels:
+      severity: page
+    annotations:
+      summary: "{{$labels.instance}}: Low data disk space"
+      description: "{{$labels.instance}}: Data disk usage is above 75% (current value is: {{ $value }})"
