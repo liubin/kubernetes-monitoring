@@ -43,7 +43,7 @@ spec:
           - name: grafana-persistent-storage
             mountPath: /var
         - name: grafana-dashboards
-          image: docker
+          image: alpine:3.7
           command: ["/bin/sh", "-c"]
           workingDir: /opt/grafana-dashboards
           args:
