@@ -354,7 +354,7 @@
           },
           "targets": [
             {
-              "expr": "count(container_last_seen{id=~\"^/docker.*\",image!=\"gcr.io/google_containers/pause-amd64:3.0\"})",
+              "expr": "count(container_last_seen{image!=\"gcr.io/google_containers/pause-amd64:3.0\"})",
               "intervalFactor": 2,
               "legendFormat": "",
               "metric": "container_last_seen",

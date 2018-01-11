@@ -190,7 +190,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(node_filesystem_size{mountpoint=\"/root-disk\"} - node_filesystem_free{mountpoint=\"/root-disk\"} ) / node_filesystem_size{mountpoint=\"/root-disk\"} * 100",
+              "expr": "(node_filesystem_size{mountpoint=\"/\"} - node_filesystem_free{mountpoint=\"/\"} ) / node_filesystem_size{mountpoint=\"/\"} * 100",
               "interval": "10s",
               "intervalFactor": 1,
               "legendFormat": "{{ instance }}",
@@ -362,7 +362,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(100 - (avg by (instance) (irate(node_cpu{name=\"node-exporter\",mode=\"idle\"}[5m])) * 100))",
+              "expr": "(100 - (avg by (instance) (irate(node_cpu{app=\"node-exporter\",mode=\"idle\"}[5m])) * 100))",
               "interval": "10s",
               "intervalFactor": 1,
               "legendFormat": "{{ instance }}",
