@@ -43,13 +43,12 @@ spec:
           - name: grafana-persistent-storage
             mountPath: /var
         - name: grafana-dashboards
-          image: alpine:3.7
+          image: liubin/alpine:3.7
           command: ["/bin/sh", "-c"]
           workingDir: /opt/grafana-dashboards
           args:
             # FIXME use kubernetes probe instead of "until curl"
             - >
-              apk --update add curl ;
               until $(curl --silent --fail --show-error --output /dev/null http://localhost:3000/api/datasources); do
                 printf '.' ; sleep 1 ;
               done ;

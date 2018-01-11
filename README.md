@@ -11,3 +11,9 @@ kubectl create configmap alertmanager-templates --from-file=alertmanager-templat
 
 * Prometheus rules.
 * Grafana dashboards.
+
+## Great thanks
+
+* https://github.com/kubernetes/kube-state-metrics
+* https://github.com/kayrus/prometheus-kubernetes
+* https://github.com/kkohtaka/kubernetes-metrics
