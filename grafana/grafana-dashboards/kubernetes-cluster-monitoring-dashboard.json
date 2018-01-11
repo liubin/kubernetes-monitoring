@@ -268,7 +268,7 @@
           },
           "targets": [
             {
-              "expr": "(sum(node_filesystem_size{mountpoint=\"/root-disk\"}) - sum(node_filesystem_free{mountpoint=\"/root-disk\"}) ) / sum(node_filesystem_size{mountpoint=\"/root-disk\"}) * 100",
+              "expr": "(sum(node_filesystem_size{mountpoint=\"/\"}) - sum(node_filesystem_free{mountpoint=\"/\"}) ) / sum(node_filesystem_size{mountpoint=\"/\"}) * 100",
               "interval": "10s",
               "intervalFactor": 1,
               "metric": "",
