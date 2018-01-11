@@ -4,15 +4,13 @@ metadata:
   name: fluentd
   namespace: kube-system
   labels:
-    k8s-app: fluentd-logging
-    version: v1
+    k8s-app: fluentd
     kubernetes.io/cluster-service: "true"
 spec:
   template:
     metadata:
       labels:
-        k8s-app: fluentd-logging
-        version: v1
+        k8s-app: fluentd
         kubernetes.io/cluster-service: "true"
     spec:
       tolerations:
@@ -23,7 +21,7 @@ spec:
         image: fluent/fluentd-kubernetes-daemonset:elasticsearch
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
-            value: "10.10.0.2"
+            value: "elasticsearch"
           - name:  FLUENT_ELASTICSEARCH_PORT
             value: "9200"
           - name: FLUENT_ELASTICSEARCH_SCHEME
