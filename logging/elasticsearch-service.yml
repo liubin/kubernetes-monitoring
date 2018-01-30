@@ -15,4 +15,4 @@ spec:
   - name: transport
     port: 9300
     protocol: TCP
-    targetPort: 9200
+    targetPort: 9300
